@@ -1,13 +1,12 @@
-from DongliTeahousePySideWheel.DongliTeahousePalette import *
 from MyComponent import *
 
-app=QApplication(sys.argv)
+app=DongliTeahouseAPP([])
 
-app.setStyle("Fusion")
-app.setPalette(MyDarkPalette())
-app.setQuitOnLastWindowClosed(False)
+app.setApplicationName("Life Timeline")
+app.setAuthor("Holence")
+app.setApplicationVersion("0.0.0.0")
 
-window=MainWindow()
-window.quitApp.connect(app.quit)
+window=MainWindow(app)
+app.setMainWindow(window)
 
-sys.exit(app.exec_())
+app.run()
