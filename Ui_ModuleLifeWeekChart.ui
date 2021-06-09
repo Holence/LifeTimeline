@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ModuleLifeTimeline</class>
- <widget class="QWidget" name="ModuleLifeTimeline">
+ <class>ModuleLifeWeekChart</class>
+ <widget class="QWidget" name="ModuleLifeWeekChart">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>ModuleLifeWeekChart</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -44,7 +44,7 @@
   </layout>
   <action name="actionAdd_Event">
    <property name="icon">
-    <iconset resource="../DongliTeahouse.qrc">
+    <iconset>
      <normaloff>:/white/white_plus.svg</normaloff>:/white/white_plus.svg</iconset>
    </property>
    <property name="text">

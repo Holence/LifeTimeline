@@ -22,6 +22,7 @@ class Ui_ModuleSettingPage(object):
         self.page.setObjectName(u"page")
         self.gridLayout = QGridLayout(self.page)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.label_lifesapn = QLabel(self.page)
         self.label_lifesapn.setObjectName(u"label_lifesapn")
 

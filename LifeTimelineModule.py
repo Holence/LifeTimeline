@@ -1,11 +1,16 @@
 from DongliTeahousePySideWheel.DongliTeahouseTemplate import *
+from LifeTimelineWidget import *
+
+###################################################################################################
+
+# Setting
 
 from Ui_ModuleSettingPage import Ui_ModuleSettingPage
 class SettingPageModule(Ui_ModuleSettingPage,QStackedWidget):
 	def __init__(self,parent):
 		super().__init__()
 		self.setupUi(self)
-		self.parent=parent
+		self.PAPA=parent
 		self.spinBox_lifespan.setValue(parent.lifespan)
 		self.pushButton_lifespan.clicked.connect(self.setLifespan)
 
@@ -13,14 +18,27 @@ class SettingPageModule(Ui_ModuleSettingPage,QStackedWidget):
 		self.pushButton_birthday.clicked.connect(self.setBirthday)
 	
 	def setLifespan(self):
-		self.parent.lifespan=self.spinBox_lifespan.value()
-		self.parent.UserSetting.setValue("lifespan",Fernet_Encrypt(self.parent.password(),self.parent.lifespan))
-		self.parent.lifetimeline.updateView()
+		self.PAPA.lifespan=self.spinBox_lifespan.value()
+		self.PAPA.UserSetting.setValue("lifespan",Fernet_Encrypt(self.PAPA.password(),self.PAPA.lifespan))
+		self.PAPA.lifetimeline.updateView()
 	
 	def setBirthday(self):
-		self.parent.birthday=self.dateEdit_birthday.date()
-		self.parent.UserSetting.setValue("birthday",Fernet_Encrypt(self.parent.password(),QDate_to_Str(self.parent.birthday)))
-		self.parent.lifetimeline.updateView()
+		self.PAPA.birthday=self.dateEdit_birthday.date()
+		self.PAPA.UserSetting.setValue("birthday",Fernet_Encrypt(self.PAPA.password(),QDate_to_Str(self.PAPA.birthday)))
+		self.PAPA.lifetimeline.updateView()
+
+class SettingDialog(DongliTeahouseSettingDialog):
+	def __init__(self, parent):
+		super().__init__(parent)
+
+		self.SettingPages=SettingPageModule(parent)
+
+		MenuButton1=DongliTeahouseSettingButton(QIcon(":/white/white_menu.svg"))
+		self.addButtonAndPage(MenuButton1,self.SettingPages.page)
+
+###################################################################################################
+
+# Event Edit
 
 from Ui_ModuleEventEdit import Ui_ModuleEventEdit
 class ModuleEventEdit(Ui_ModuleEventEdit,QWidget):
@@ -36,12 +54,28 @@ class ModuleEventEdit(Ui_ModuleEventEdit,QWidget):
 		if color.isValid():
 			self.color=color.name()
 
-from Ui_ModuleLifeTimeLine import Ui_ModuleLifeTimeline
-class ModuleLifeTimeline(Ui_ModuleLifeTimeline,QWidget):
+class EventEditDialog(DongliTeahouseDialog):
+	def __init__(self, parent):
+		super().__init__(parent,"Add New Event")
+		self.eventedit=ModuleEventEdit(self)
+		self.centralWidget.addWidget(self.eventedit)
+	
+	def accept(self):
+		if self.eventedit.dateEdit_begin.date()>=self.eventedit.dateEdit_end.date():
+			DongliTeahouseMessageBox(self,"Warning","Wrong Date Range!",DongliTeahouseMessageIcon.Warning())
+		else:
+			super().accept()
+
+###################################################################################################
+
+# Week Chart
+
+from Ui_ModuleLifeWeekChart import Ui_ModuleLifeWeekChart
+class ModuleLifeTimeline(Ui_ModuleLifeWeekChart,QWidget):
 	def __init__(self,parent):
 		super().__init__(parent)
 		self.setupUi(self)
-		self.parent=parent
+		self.PAPA=parent
 
 		self.initializeWindow()
 		self.initializeSignal()
@@ -58,28 +92,28 @@ class ModuleLifeTimeline(Ui_ModuleLifeTimeline,QWidget):
 		self.actionAdd_Event.triggered.connect(self.eventAdd)
 		self.addAction(self.actionAdd_Event)
 
-		self.parent.addActionToMainMenu(self.actionAdd_Event)
-		self.parent.addSeparatorToMainMenu()
+		self.PAPA.addActionToMainMenu(self.actionAdd_Event)
+		self.PAPA.addSeparatorToMainMenu()
 
 	def updateView(self):
 		self.scene.clear()
 
-		now=self.parent.birthday
-		for i in range(self.parent.lifespan):
+		now=self.PAPA.birthday
+		for i in range(self.PAPA.lifespan):
 			for j in range(52):
 				
 				colorList=[]
-				for event in self.parent.data:
+				for event in self.PAPA.data:
 					if QDate_to_Str(now) >= event["begin"] and QDate_to_Str(now) <= event["end"]:
 						colorList.append(event["color"])
 				
-				temp=WeekCube(self.parent.birthday,now,colorList,self)
+				temp=WeekCube(self.PAPA.birthday,now,colorList,self)
 				self.scene.addItem(temp)
 
 				now=now.addDays(7)
 	
 	def eventAdd(self):
-		dlg=EventEditDialog(self.parent)
+		dlg=EventEditDialog(self.PAPA)
 		if dlg.exec_():
 			begin=QDate_to_Str(dlg.eventedit.dateEdit_begin.date())
 			end=QDate_to_Str(dlg.eventedit.dateEdit_end.date())
@@ -93,36 +127,13 @@ class ModuleLifeTimeline(Ui_ModuleLifeTimeline,QWidget):
 				"color":color
 			}
 
-			self.parent.data.append(event)
+			self.PAPA.data.append(event)
 
 			self.updateView()
 
+###################################################################################################
 
-###############################################################################################################
-###############################################################################################################
-###############################################################################################################
-
-class SettingDialog(DongliTeahouseSettingDialog):
-	def __init__(self, parent):
-		super().__init__(parent)
-
-		self.SettingPages=SettingPageModule(parent)
-
-		MenuButton1=DongliTeahouseSettingButton(QIcon(":/white/white_menu.svg"))
-		self.addButtonAndPage(MenuButton1,self.SettingPages.page)
-
-class EventEditDialog(DongliTeahouseDialog):
-	def __init__(self, parent):
-		super().__init__(parent,"Add New Event")
-		self.eventedit=ModuleEventEdit(self)
-		self.centralWidget.addWidget(self.eventedit)
-	
-	def accept(self):
-		if self.eventedit.dateEdit_begin.date()>=self.eventedit.dateEdit_end.date():
-			DongliTeahouseMessageBox(self,"Warning","Wrong Date Range!",DongliTeahouseMessageIcon.Warning())
-		else:
-			super().accept()
-
+# Mainwidow
 
 class MainWindow(DongliTeahouseMainWindow):
 	def __init__(self, app):
@@ -161,13 +172,12 @@ class MainWindow(DongliTeahouseMainWindow):
 
 	def dataSave(self):
 		Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
-		
 	
-	def UserSettingSave(self):
-		super().UserSettingSave()
+	def SaveAllEncryptData(self):
+		super().SaveAllEncryptData()
+		self.dataSave()
 		self.UserSetting.setValue("lifespan",Fernet_Encrypt(self.password(),self.lifespan))
 		self.UserSetting.setValue("birthday",Fernet_Encrypt(self.password(),QDate_to_Str(self.birthday)))
-
 	
 	def setting(self):
 		dlg=SettingDialog(self)

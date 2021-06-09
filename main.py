@@ -1,4 +1,4 @@
-from MyComponent import *
+from LifeTimelineModule import *
 
 app=DongliTeahouseAPP([])
 
