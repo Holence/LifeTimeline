@@ -9,4 +9,5 @@ app.setApplicationVersion("0.0.0.0")
 window=MainWindow(app)
 app.setMainWindow(window)
 
+# app.debugRun("123",True)
 app.run()
