@@ -23,21 +23,24 @@ class Ui_ModuleSettingPage(object):
         self.gridLayout = QGridLayout(self.page)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_lifesapn = QLabel(self.page)
-        self.label_lifesapn.setObjectName(u"label_lifesapn")
+        self.verticalSpacer = QSpacerItem(20, 185, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.label_lifesapn, 0, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 6, 1, 1, 1)
 
-        self.spinBox_lifespan = QSpinBox(self.page)
-        self.spinBox_lifespan.setObjectName(u"spinBox_lifespan")
+        self.dateEdit_birthday = QDateEdit(self.page)
+        self.dateEdit_birthday.setObjectName(u"dateEdit_birthday")
         sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.spinBox_lifespan.sizePolicy().hasHeightForWidth())
-        self.spinBox_lifespan.setSizePolicy(sizePolicy)
-        self.spinBox_lifespan.setMaximum(1000)
+        sizePolicy.setHeightForWidth(self.dateEdit_birthday.sizePolicy().hasHeightForWidth())
+        self.dateEdit_birthday.setSizePolicy(sizePolicy)
 
-        self.gridLayout.addWidget(self.spinBox_lifespan, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.dateEdit_birthday, 3, 0, 1, 1)
+
+        self.pushButton_birthday = QPushButton(self.page)
+        self.pushButton_birthday.setObjectName(u"pushButton_birthday")
+
+        self.gridLayout.addWidget(self.pushButton_birthday, 3, 1, 1, 1)
 
         self.pushButton_lifespan = QPushButton(self.page)
         self.pushButton_lifespan.setObjectName(u"pushButton_lifespan")
@@ -49,21 +52,37 @@ class Ui_ModuleSettingPage(object):
 
         self.gridLayout.addWidget(self.label_birthday, 2, 0, 1, 1)
 
-        self.dateEdit_birthday = QDateEdit(self.page)
-        self.dateEdit_birthday.setObjectName(u"dateEdit_birthday")
-        sizePolicy.setHeightForWidth(self.dateEdit_birthday.sizePolicy().hasHeightForWidth())
-        self.dateEdit_birthday.setSizePolicy(sizePolicy)
+        self.label_cubewidth = QLabel(self.page)
+        self.label_cubewidth.setObjectName(u"label_cubewidth")
 
-        self.gridLayout.addWidget(self.dateEdit_birthday, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_cubewidth, 4, 0, 1, 1)
 
-        self.pushButton_birthday = QPushButton(self.page)
-        self.pushButton_birthday.setObjectName(u"pushButton_birthday")
+        self.label_lifesapn = QLabel(self.page)
+        self.label_lifesapn.setObjectName(u"label_lifesapn")
 
-        self.gridLayout.addWidget(self.pushButton_birthday, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_lifesapn, 0, 0, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 185, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.spinBox_lifespan = QSpinBox(self.page)
+        self.spinBox_lifespan.setObjectName(u"spinBox_lifespan")
+        sizePolicy.setHeightForWidth(self.spinBox_lifespan.sizePolicy().hasHeightForWidth())
+        self.spinBox_lifespan.setSizePolicy(sizePolicy)
+        self.spinBox_lifespan.setMaximum(1000)
 
-        self.gridLayout.addItem(self.verticalSpacer, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.spinBox_lifespan, 1, 0, 1, 1)
+
+        self.spinBox_cubewidth = QSpinBox(self.page)
+        self.spinBox_cubewidth.setObjectName(u"spinBox_cubewidth")
+        sizePolicy.setHeightForWidth(self.spinBox_cubewidth.sizePolicy().hasHeightForWidth())
+        self.spinBox_cubewidth.setSizePolicy(sizePolicy)
+        self.spinBox_cubewidth.setMinimum(5)
+        self.spinBox_cubewidth.setMaximum(1000)
+
+        self.gridLayout.addWidget(self.spinBox_cubewidth, 5, 0, 1, 1)
+
+        self.pushButton_cubewidth = QPushButton(self.page)
+        self.pushButton_cubewidth.setObjectName(u"pushButton_cubewidth")
+
+        self.gridLayout.addWidget(self.pushButton_cubewidth, 5, 1, 1, 1)
 
         ModuleSettingPage.addWidget(self.page)
 
@@ -74,9 +93,11 @@ class Ui_ModuleSettingPage(object):
 
     def retranslateUi(self, ModuleSettingPage):
         ModuleSettingPage.setWindowTitle(QCoreApplication.translate("ModuleSettingPage", u"StackedWidget", None))
-        self.label_lifesapn.setText(QCoreApplication.translate("ModuleSettingPage", u"Lifespan", None))
+        self.pushButton_birthday.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
         self.pushButton_lifespan.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
         self.label_birthday.setText(QCoreApplication.translate("ModuleSettingPage", u"Birthday", None))
-        self.pushButton_birthday.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
+        self.label_cubewidth.setText(QCoreApplication.translate("ModuleSettingPage", u"Week Cube Width", None))
+        self.label_lifesapn.setText(QCoreApplication.translate("ModuleSettingPage", u"Lifespan", None))
+        self.pushButton_cubewidth.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
     # retranslateUi
 

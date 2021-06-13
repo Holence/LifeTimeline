@@ -27,6 +27,57 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
+    <item row="6" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>185</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="0">
+     <widget class="QDateEdit" name="dateEdit_birthday">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="pushButton_birthday">
+      <property name="text">
+       <string>Apply</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="pushButton_lifespan">
+      <property name="text">
+       <string>Apply</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_birthday">
+      <property name="text">
+       <string>Birthday</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_cubewidth">
+      <property name="text">
+       <string>Week Cube Width</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label_lifesapn">
       <property name="text">
@@ -47,49 +98,28 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_lifespan">
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_birthday">
-      <property name="text">
-       <string>Birthday</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QDateEdit" name="dateEdit_birthday">
+    <item row="5" column="0">
+     <widget class="QSpinBox" name="spinBox_cubewidth">
       <property name="sizePolicy">
        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimum">
+       <number>5</number>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
      </widget>
     </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="pushButton_birthday">
+    <item row="5" column="1">
+     <widget class="QPushButton" name="pushButton_cubewidth">
       <property name="text">
        <string>Apply</string>
       </property>
      </widget>
-    </item>
-    <item row="4" column="1">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>185</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>

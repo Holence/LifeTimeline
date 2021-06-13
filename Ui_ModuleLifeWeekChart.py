@@ -39,6 +39,7 @@ class Ui_ModuleLifeWeekChart(object):
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
         self.gridLayout = QGridLayout(self.verticalLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(15)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.verticalLayoutWidget)
         self.label.setObjectName(u"label")

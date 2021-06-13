@@ -40,6 +40,9 @@
      <widget class="QGraphicsView" name="graphicsView"/>
      <widget class="QWidget" name="verticalLayoutWidget">
       <layout class="QGridLayout" name="gridLayout">
+       <property name="verticalSpacing">
+        <number>15</number>
+       </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
