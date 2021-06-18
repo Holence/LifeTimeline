@@ -1,4 +1,4 @@
-from DongliTeahousePySideWheel.DongliTeahouseWidget import *
+from DongliTeahousePySideWheel import *
 
 class WeekCube(QGraphicsRectItem):
 	
@@ -27,7 +27,7 @@ class WeekCube(QGraphicsRectItem):
 		tooltip_text=tooltip_text[:-1]
 
 		# 设置父组件为graphicsView
-		self.tooltip=DongliTeahouseToolTip(self.moduleLifeWeekChart.graphicsView,tooltip_text)
+		self.tooltip=DongliTeahouseWidget.DongliTeahouseToolTip(self.moduleLifeWeekChart.graphicsView,tooltip_text)
 		
 		# 以graphicsView为坐标系，计算相对坐标
 		position=self.moduleLifeWeekChart.graphicsView.mapFromScene(self.pos()-QPoint(0,self.tooltip.height()))

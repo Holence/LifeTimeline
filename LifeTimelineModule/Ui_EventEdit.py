@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Ui_ModuleEventEdit.ui'
+## Form generated from reading UI file 'Ui_EventEdit.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,15 +13,15 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_ModuleEventEdit(object):
-    def setupUi(self, ModuleEventEdit):
-        if not ModuleEventEdit.objectName():
-            ModuleEventEdit.setObjectName(u"ModuleEventEdit")
-        ModuleEventEdit.resize(593, 359)
-        self.verticalLayout_2 = QVBoxLayout(ModuleEventEdit)
+class Ui_EventEdit(object):
+    def setupUi(self, EventEdit):
+        if not EventEdit.objectName():
+            EventEdit.setObjectName(u"EventEdit")
+        EventEdit.resize(593, 359)
+        self.verticalLayout_2 = QVBoxLayout(EventEdit)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(42, 0, 0, 0)
-        self.splitter = QSplitter(ModuleEventEdit)
+        self.splitter = QSplitter(EventEdit)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
         self.splitter.setHandleWidth(10)
@@ -119,19 +119,19 @@ class Ui_ModuleEventEdit(object):
         self.verticalLayout_2.addWidget(self.splitter)
 
 
-        self.retranslateUi(ModuleEventEdit)
+        self.retranslateUi(EventEdit)
 
-        QMetaObject.connectSlotsByName(ModuleEventEdit)
+        QMetaObject.connectSlotsByName(EventEdit)
     # setupUi
 
-    def retranslateUi(self, ModuleEventEdit):
-        ModuleEventEdit.setWindowTitle(QCoreApplication.translate("ModuleEventEdit", u"EventEdit", None))
-        self.label_4.setText(QCoreApplication.translate("ModuleEventEdit", u"Color", None))
-        self.label_6.setText(QCoreApplication.translate("ModuleEventEdit", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("ModuleEventEdit", u"Date End", None))
-        self.label.setText(QCoreApplication.translate("ModuleEventEdit", u"Date Begin", None))
+    def retranslateUi(self, EventEdit):
+        EventEdit.setWindowTitle(QCoreApplication.translate("EventEdit", u"EventEdit", None))
+        self.label_4.setText(QCoreApplication.translate("EventEdit", u"Color", None))
+        self.label_6.setText(QCoreApplication.translate("EventEdit", u"Name", None))
+        self.label_2.setText(QCoreApplication.translate("EventEdit", u"Date End", None))
+        self.label.setText(QCoreApplication.translate("EventEdit", u"Date Begin", None))
         self.pushButton_color.setText("")
-        self.label_3.setText(QCoreApplication.translate("ModuleEventEdit", u"Description", None))
-        self.label_5.setText(QCoreApplication.translate("ModuleEventEdit", u"Picture List", None))
+        self.label_3.setText(QCoreApplication.translate("EventEdit", u"Description", None))
+        self.label_5.setText(QCoreApplication.translate("EventEdit", u"Picture List", None))
     # retranslateUi
 

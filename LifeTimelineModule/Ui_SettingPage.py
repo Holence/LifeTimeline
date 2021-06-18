@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Ui_ModuleSettingPage.ui'
+## Form generated from reading UI file 'Ui_SettingPage.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,11 +13,11 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_ModuleSettingPage(object):
-    def setupUi(self, ModuleSettingPage):
-        if not ModuleSettingPage.objectName():
-            ModuleSettingPage.setObjectName(u"ModuleSettingPage")
-        ModuleSettingPage.resize(400, 300)
+class Ui_SettingPage(object):
+    def setupUi(self, SettingPage):
+        if not SettingPage.objectName():
+            SettingPage.setObjectName(u"SettingPage")
+        SettingPage.resize(400, 300)
         self.page = QWidget()
         self.page.setObjectName(u"page")
         self.gridLayout = QGridLayout(self.page)
@@ -84,20 +84,20 @@ class Ui_ModuleSettingPage(object):
 
         self.gridLayout.addWidget(self.pushButton_cubewidth, 5, 1, 1, 1)
 
-        ModuleSettingPage.addWidget(self.page)
+        SettingPage.addWidget(self.page)
 
-        self.retranslateUi(ModuleSettingPage)
+        self.retranslateUi(SettingPage)
 
-        QMetaObject.connectSlotsByName(ModuleSettingPage)
+        QMetaObject.connectSlotsByName(SettingPage)
     # setupUi
 
-    def retranslateUi(self, ModuleSettingPage):
-        ModuleSettingPage.setWindowTitle(QCoreApplication.translate("ModuleSettingPage", u"StackedWidget", None))
-        self.pushButton_birthday.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
-        self.pushButton_lifespan.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
-        self.label_birthday.setText(QCoreApplication.translate("ModuleSettingPage", u"Birthday", None))
-        self.label_cubewidth.setText(QCoreApplication.translate("ModuleSettingPage", u"Week Cube Width", None))
-        self.label_lifesapn.setText(QCoreApplication.translate("ModuleSettingPage", u"Lifespan", None))
-        self.pushButton_cubewidth.setText(QCoreApplication.translate("ModuleSettingPage", u"Apply", None))
+    def retranslateUi(self, SettingPage):
+        SettingPage.setWindowTitle(QCoreApplication.translate("SettingPage", u"SettingPage", None))
+        self.pushButton_birthday.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
+        self.pushButton_lifespan.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
+        self.label_birthday.setText(QCoreApplication.translate("SettingPage", u"Birthday", None))
+        self.label_cubewidth.setText(QCoreApplication.translate("SettingPage", u"Week Cube Width", None))
+        self.label_lifesapn.setText(QCoreApplication.translate("SettingPage", u"Lifespan", None))
+        self.pushButton_cubewidth.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
     # retranslateUi
 

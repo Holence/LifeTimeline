@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Ui_ModuleLifeWeekChart.ui'
+## Form generated from reading UI file 'Ui_LifeWeekChart.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -14,21 +14,21 @@ from PySide2.QtWidgets import *
 
 import DongliTeahousePySideWheel.DongliTeahouse_rc
 
-class Ui_ModuleLifeWeekChart(object):
-    def setupUi(self, ModuleLifeWeekChart):
-        if not ModuleLifeWeekChart.objectName():
-            ModuleLifeWeekChart.setObjectName(u"ModuleLifeWeekChart")
-        ModuleLifeWeekChart.resize(647, 572)
-        self.actionAdd_Event = QAction(ModuleLifeWeekChart)
+class Ui_LifeWeekChart(object):
+    def setupUi(self, LifeWeekChart):
+        if not LifeWeekChart.objectName():
+            LifeWeekChart.setObjectName(u"LifeWeekChart")
+        LifeWeekChart.resize(647, 572)
+        self.actionAdd_Event = QAction(LifeWeekChart)
         self.actionAdd_Event.setObjectName(u"actionAdd_Event")
         icon = QIcon()
-        icon.addFile(u":/white/white_plus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/white/white_plus.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.actionAdd_Event.setIcon(icon)
-        self.horizontalLayout = QHBoxLayout(ModuleLifeWeekChart)
+        self.horizontalLayout = QHBoxLayout(LifeWeekChart)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(8, 8, 8, 8)
-        self.splitter = QSplitter(ModuleLifeWeekChart)
+        self.splitter = QSplitter(LifeWeekChart)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
         self.splitter.setHandleWidth(10)
@@ -79,18 +79,18 @@ class Ui_ModuleLifeWeekChart(object):
         self.horizontalLayout.addWidget(self.splitter)
 
 
-        self.retranslateUi(ModuleLifeWeekChart)
+        self.retranslateUi(LifeWeekChart)
 
-        QMetaObject.connectSlotsByName(ModuleLifeWeekChart)
+        QMetaObject.connectSlotsByName(LifeWeekChart)
     # setupUi
 
-    def retranslateUi(self, ModuleLifeWeekChart):
-        ModuleLifeWeekChart.setWindowTitle(QCoreApplication.translate("ModuleLifeWeekChart", u"ModuleLifeWeekChart", None))
-        self.actionAdd_Event.setText(QCoreApplication.translate("ModuleLifeWeekChart", u"Add Event", None))
+    def retranslateUi(self, LifeWeekChart):
+        LifeWeekChart.setWindowTitle(QCoreApplication.translate("LifeWeekChart", u"LifeWeekChart", None))
+        self.actionAdd_Event.setText(QCoreApplication.translate("LifeWeekChart", u"Add Event", None))
 #if QT_CONFIG(shortcut)
-        self.actionAdd_Event.setShortcut(QCoreApplication.translate("ModuleLifeWeekChart", u"Ctrl+N", None))
+        self.actionAdd_Event.setShortcut(QCoreApplication.translate("LifeWeekChart", u"Ctrl+N", None))
 #endif // QT_CONFIG(shortcut)
-        self.label.setText(QCoreApplication.translate("ModuleLifeWeekChart", u"Date", None))
-        self.label_2.setText(QCoreApplication.translate("ModuleLifeWeekChart", u"Event List", None))
+        self.label.setText(QCoreApplication.translate("LifeWeekChart", u"Date", None))
+        self.label_2.setText(QCoreApplication.translate("LifeWeekChart", u"Event List", None))
     # retranslateUi
 
