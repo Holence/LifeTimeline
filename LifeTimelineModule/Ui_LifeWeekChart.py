@@ -12,7 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import DongliTeahousePySideWheel.DongliTeahouse_rc
+import DTPySide.DT_rc
 
 class Ui_LifeWeekChart(object):
     def setupUi(self, LifeWeekChart):

@@ -12,12 +12,13 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import DTPySide.DT_rc
 
 class Ui_EventEdit(object):
     def setupUi(self, EventEdit):
         if not EventEdit.objectName():
             EventEdit.setObjectName(u"EventEdit")
-        EventEdit.resize(593, 359)
+        EventEdit.resize(602, 367)
         self.verticalLayout_2 = QVBoxLayout(EventEdit)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(42, 0, 0, 0)
@@ -98,6 +99,43 @@ class Ui_EventEdit(object):
 
         self.gridLayout.addWidget(self.label_3, 4, 0, 1, 1)
 
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
+        self.pushButton_delete = QPushButton(self.layoutWidget)
+        self.pushButton_delete.setObjectName(u"pushButton_delete")
+        sizePolicy.setHeightForWidth(self.pushButton_delete.sizePolicy().hasHeightForWidth())
+        self.pushButton_delete.setSizePolicy(sizePolicy)
+        self.pushButton_delete.setMinimumSize(QSize(24, 24))
+        self.pushButton_delete.setMaximumSize(QSize(24, 24))
+        self.pushButton_delete.setLayoutDirection(Qt.LeftToRight)
+        self.pushButton_delete.setStyleSheet(u"QPushButton {	\n"
+"	border: none;\n"
+"	background-color: transparent;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: #30353F;\n"
+"	border-style: solid; \n"
+"	border-radius: 4px;\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: #49505F;\n"
+"	border-style: solid;\n"
+"	border-radius: 4px;\n"
+"}")
+        icon = QIcon()
+        icon.addFile(u":/icon/white/white_trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_delete.setIcon(icon)
+        self.pushButton_delete.setIconSize(QSize(24, 24))
+
+        self.verticalLayout_3.addWidget(self.pushButton_delete)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_3, 5, 0, 1, 1)
+
         self.splitter.addWidget(self.layoutWidget)
         self.layoutWidget1 = QWidget(self.splitter)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
@@ -132,6 +170,7 @@ class Ui_EventEdit(object):
         self.label.setText(QCoreApplication.translate("EventEdit", u"Date Begin", None))
         self.pushButton_color.setText("")
         self.label_3.setText(QCoreApplication.translate("EventEdit", u"Description", None))
+        self.pushButton_delete.setText("")
         self.label_5.setText(QCoreApplication.translate("EventEdit", u"Picture List", None))
     # retranslateUi
 

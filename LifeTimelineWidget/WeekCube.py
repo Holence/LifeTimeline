@@ -1,4 +1,5 @@
-from DongliTeahousePySideWheel import *
+from DTPySide.DTFunction import *
+from DTPySide.DTWidget import DTToolTip
 
 class WeekCube(QGraphicsRectItem):
 	
@@ -27,7 +28,7 @@ class WeekCube(QGraphicsRectItem):
 		tooltip_text=tooltip_text[:-1]
 
 		# 设置父组件为graphicsView
-		self.tooltip=DongliTeahouseWidget.DongliTeahouseToolTip(self.moduleLifeWeekChart.graphicsView,tooltip_text)
+		self.tooltip=DTToolTip(self.moduleLifeWeekChart.graphicsView,tooltip_text)
 		
 		# 以graphicsView为坐标系，计算相对坐标
 		position=self.moduleLifeWeekChart.graphicsView.mapFromScene(self.pos()-QPoint(0,self.tooltip.height()))
@@ -47,11 +48,11 @@ class WeekCube(QGraphicsRectItem):
 					color: #E6E6E6;
 					padding-left: 10px;
 					padding-right: 10px;
-					border-radius: 17px;
+					border-radius: %spx;
 					border: 1px solid #0C0B0B;
 					border-right: 3px solid #FF6265;
 				}
-			""")
+			"""%(self.tooltip.font().pointSize()//2))
 
 			# setStyleSheet会自动清空font，这里还得手动set一下
 			self.tooltip.setFont(self.moduleLifeWeekChart.font())

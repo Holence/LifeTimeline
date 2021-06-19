@@ -1,8 +1,11 @@
-from DongliTeahousePySideWheel import *
+from DTPySide.DTFunction import *
+from DTPySide.DTSession import DTMainSession
+from DTPySide.DTFrame import DTMessageBox
+
 from LifeTimelineSession.SettingSession import SettingSession
 from LifeTimelineModule.LifeWeekChart import LifeWeekChart
 
-class MainSession(DongliTeahouseSession.DongliTeahouseMainSession):
+class MainSession(DTMainSession):
 	def __init__(self,app):
 		super().__init__(app)
 
@@ -29,7 +32,7 @@ class MainSession(DongliTeahouseSession.DongliTeahouseMainSession):
 		if os.path.exists("./LifeTimelime.dlcw"):
 			self.data=Fernet_Decrypt_Load(self.password(),"./LifeTimelime.dlcw")
 			if self.data==False:
-				DongliTeahouseFrame.DongliTeahouseMessageBox(self,"Error","Data Error!")
+				DTMessageBox(self,"Error","Data Error!")
 				exit()
 		else:
 			self.data=[]

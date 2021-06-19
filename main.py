@@ -1,11 +1,13 @@
-from DongliTeahousePySideWheel import DongliTeahouseAPP
+from DTPySide import DTAPP
+from DTPySide import DTIcon
 from LifeTimelineSession.MainSession import MainSession
 
-app=DongliTeahouseAPP([])
+app=DTAPP([])
 
 app.setApplicationName("Life Timeline")
 app.setAuthor("Holence")
 app.setApplicationVersion("0.0.0.0")
+app.setWindowIcon(DTIcon.Holo2())
 
 session=MainSession(app)
 app.setMainSession(session)

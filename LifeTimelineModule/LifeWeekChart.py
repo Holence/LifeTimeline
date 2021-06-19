@@ -1,4 +1,6 @@
-from DongliTeahousePySideWheel import *
+from DTPySide.DTWidget import DTCapsuleButton
+from DTPySide.DTFunction import *
+
 from LifeTimelineWidget.WeekCube import WeekCube
 from LifeTimelineSession.EventEditSession import EventEditSession
 
@@ -57,19 +59,18 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 	def updateInfoArea(self,date,clicked_pos):
 		self.dateEdit_SelectedData.setDate(date)
 		Clear_Layout(self.verticalLayout_EventButtons)
-
+		
 		try:
 			self.current_weekcube.eraseBorder()
 		except:
 			pass
 		self.current_weekcube=self.scene.itemAt(clicked_pos.x(),clicked_pos.y(),self.graphicsView.transform())
 		self.current_weekcube.drawBorder()
-
 		
 		index=0
 		for event in self.data:
 			if Str_To_QDate(event["begin"])<=date<=Str_To_QDate(event["end"]):
-				button=DongliTeahouseWidget.DongliTeahouseCapsuleButton(self,event["name"],event["color"])
+				button=DTCapsuleButton(self,event["name"],event["color"])
 				button.clicked.connect(partial(self.eventEdit,index))
 				self.verticalLayout_EventButtons.addWidget(button)
 			index+=1
@@ -79,7 +80,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		
 		event=self.data[index]
 
-		dlg=EventEditSession(self.Headquarter,event["color"])
+		dlg=EventEditSession(self.Headquarter,"Edit Event",event["color"])
 		dlg.eventedit.lineEdit_name.setText(event["name"])
 		dlg.eventedit.dateEdit_begin.setDate(Str_To_QDate(event["begin"]))
 		dlg.eventedit.dateEdit_end.setDate(Str_To_QDate(event["end"]))
@@ -100,14 +101,28 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 			event["description"]=description
 			event["color"]=color
 
-			self.updateView()
 			try:
-				self.updateInfoArea(self.dateEdit_SelectedData.date())
+				pos=self.current_weekcube.pos()
+				self.updateView()
+				self.updateInfoArea(self.dateEdit_SelectedData.date(),pos)
 			except:
-				pass
+				self.updateView()
+		else:
+			if dlg.isDeletingEvent==True:
+				self.data.pop(index)
+			
+				try:
+					pos=self.current_weekcube.pos()
+					self.updateView()
+					self.updateInfoArea(self.dateEdit_SelectedData.date(),pos)
+				except:
+					self.updateView()
 
 	def eventAdd(self):
-		dlg=EventEditSession(self.Headquarter)
+		dlg=EventEditSession(self.Headquarter,"Add New Event")
+		
+		dlg.eventedit.pushButton_delete.hide()
+
 		if dlg.exec_():
 			name=dlg.eventedit.lineEdit_name.text()
 			end=QDate_to_Str(dlg.eventedit.dateEdit_end.date())
@@ -125,9 +140,10 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 			}
 
 			self.data.append(event)
-
-			self.updateView()
+			
 			try:
-				self.updateInfoArea(self.dateEdit_SelectedData.date())
+				pos=self.current_weekcube.pos()
+				self.updateView()
+				self.updateInfoArea(self.dateEdit_SelectedData.date(),pos)
 			except:
-				pass
+				self.updateView()

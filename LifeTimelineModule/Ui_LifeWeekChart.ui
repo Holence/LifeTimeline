@@ -115,7 +115,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../DongliTeahouse.qrc"/>
+  <include location="../DT.qrc"/>
  </resources>
  <connections/>
 </ui>

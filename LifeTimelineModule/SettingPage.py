@@ -1,10 +1,13 @@
-from DongliTeahousePySideWheel import *
+from DTPySide.DTFunction import *
 
 from LifeTimelineModule.Ui_SettingPage import Ui_SettingPage
 class SettingPage(Ui_SettingPage,QStackedWidget):
 	def __init__(self,Headquarter):
-		super().__init__()
+		super().__init__(Headquarter)
 		self.setupUi(self)
+		# 继承字体
+		self.setAttribute(Qt.WA_WindowPropagation)
+
 		self.Headquarter=Headquarter
 		self.spinBox_lifespan.setValue(self.Headquarter.lifespan)
 		self.pushButton_lifespan.clicked.connect(self.setLifespan)
