@@ -1,4 +1,4 @@
-from DTPySide.DTFunction import *
+from DTPySide import *
 
 from LifeTimelineModule.Ui_SettingPage import Ui_SettingPage
 class SettingPage(Ui_SettingPage,QStackedWidget):

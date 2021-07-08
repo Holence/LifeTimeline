@@ -1,11 +1,9 @@
-from DTPySide.DTFunction import *
-from DTPySide.DTSession import DTMainSession
-from DTPySide.DTFrame import DTMessageBox
+from DTPySide import *
 
 from LifeTimelineSession.SettingSession import SettingSession
 from LifeTimelineModule.LifeWeekChart import LifeWeekChart
 
-class MainSession(DTMainSession):
+class MainSession(DTSession.DTMainSession):
 	def __init__(self,app):
 		super().__init__(app)
 
@@ -32,7 +30,7 @@ class MainSession(DTMainSession):
 		if os.path.exists("./LifeTimelime.dlcw"):
 			self.data=Fernet_Decrypt_Load(self.password(),"./LifeTimelime.dlcw")
 			if self.data==False:
-				DTMessageBox(self,"Error","Data Error!")
+				DTFrame.DTMessageBox(self,"Error","Data Error!")
 				exit()
 		else:
 			self.data=[]
@@ -73,5 +71,5 @@ class MainSession(DTMainSession):
 		self.UserSetting().setValue("cubewidth",Fernet_Encrypt(self.password(),self.cubewidth))
 	
 	def setting(self):
-		dlg=SettingSession(self)
+		dlg=SettingSession(self,self.app)
 		dlg.exec_()

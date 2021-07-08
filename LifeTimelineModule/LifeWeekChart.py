@@ -1,5 +1,4 @@
-from DTPySide.DTWidget import DTCapsuleButton
-from DTPySide.DTFunction import *
+from DTPySide import *
 
 from LifeTimelineWidget.WeekCube import WeekCube
 from LifeTimelineSession.EventEditSession import EventEditSession
@@ -70,7 +69,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		index=0
 		for event in self.data:
 			if Str_To_QDate(event["begin"])<=date<=Str_To_QDate(event["end"]):
-				button=DTCapsuleButton(self,event["name"],event["color"])
+				button=DTWidget.DTCapsuleButton(self,event["name"],event["color"])
 				button.clicked.connect(partial(self.eventEdit,index))
 				self.verticalLayout_EventButtons.addWidget(button)
 			index+=1

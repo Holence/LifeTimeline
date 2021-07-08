@@ -1,5 +1,4 @@
-from DTPySide import DTAPP
-from DTPySide import DTIcon
+from DTPySide import *
 from LifeTimelineSession.MainSession import MainSession
 
 app=DTAPP([])

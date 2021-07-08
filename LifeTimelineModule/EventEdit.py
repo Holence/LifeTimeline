@@ -1,6 +1,4 @@
-from typing import Text
-from DTPySide.DTFunction import *
-from DTPySide.DTFrame import DTDialog
+from DTPySide import *
 
 from LifeTimelineModule.Ui_EventEdit import Ui_EventEdit
 class EventEdit(Ui_EventEdit,QWidget):
@@ -27,7 +25,7 @@ class EventEdit(Ui_EventEdit,QWidget):
 			self.pushButton_color.setStyleSheet("QPushButton{background-color:%s;}"%self.color)
 	
 	def deleteEvent(self):
-		dlg=DTDialog(self,"Delete Event Confirm")
+		dlg=DTFrame.DTDialog(self,"Delete Event Confirm")
 		
 		text="Do you want to delete event: \n"+self.lineEdit_name.text()
 		
