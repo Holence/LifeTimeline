@@ -27,8 +27,8 @@ exe = EXE(pyz,
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
-          upx=False,
+          upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
           console=False,
-          icon="holoico.ico",version='version.txt')
+          icon="holoicon.ico",version='version.txt')

@@ -13,7 +13,7 @@ class EventEdit(Ui_EventEdit,QWidget):
 		self.color=color
 		self.dateEdit_begin.setDate(birthday)
 		self.dateEdit_end.setDate(birthday)
-		self.pushButton_color.setStyleSheet("QPushButton{background-color:%s;}"%self.color)
+		self.pushButton_color.setStyleSheet("QPushButton{background-color:%s;min-width:15px;min-height:15px;max-width:15px;max-height:15px;}"%self.color)
 		self.pushButton_color.clicked.connect(self.setColor)
 
 		self.pushButton_delete.clicked.connect(self.deleteEvent)

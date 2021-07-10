@@ -35,7 +35,6 @@ class MainSession(DTSession.DTMainSession):
 		else:
 			self.data=[]
 			Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
-		print(self.data)
 
 		try:
 			self.lifespan=int(Fernet_Decrypt(self.password(),self.UserSetting().value("lifespan")))
