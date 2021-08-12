@@ -31,7 +31,7 @@ class MainSession(DTSession.DTMainSession):
 			self.data=Fernet_Decrypt_Load(self.password(),"./LifeTimelime.dlcw")
 			if self.data==False:
 				DTFrame.DTMessageBox(self,"Error","Data Error!")
-				exit()
+				self.app.quit()
 		else:
 			self.data=[]
 			Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
@@ -45,7 +45,7 @@ class MainSession(DTSession.DTMainSession):
 		
 		try:
 			birthday=Fernet_Decrypt(self.password(),self.UserSetting().value("birthday"))
-			self.birthday=Str_To_QDate(birthday)
+			self.birthday=QDate().fromString(birthday,"yyyyMMdd")
 		except:
 			self.birthday=QDate(1970,1,1)
 
@@ -62,11 +62,11 @@ class MainSession(DTSession.DTMainSession):
 
 		Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
 	
-	def SaveAllEncryptData(self):
-		super().SaveAllEncryptData()
+	def saveAllEncryptData(self):
+		super().saveAllEncryptData()
 		self.saveData()
 		self.UserSetting().setValue("lifespan",Fernet_Encrypt(self.password(),self.lifespan))
-		self.UserSetting().setValue("birthday",Fernet_Encrypt(self.password(),QDate_to_Str(self.birthday)))
+		self.UserSetting().setValue("birthday",Fernet_Encrypt(self.password(),self.birthday.toString("yyyyMMdd")))
 		self.UserSetting().setValue("cubewidth",Fernet_Encrypt(self.password(),self.cubewidth))
 	
 	def setting(self):

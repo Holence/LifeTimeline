@@ -2,7 +2,7 @@ from DTPySide import *
 
 class WeekCube(QGraphicsRectItem):
 	
-	def __init__(self,birthday,week_start,colorList,moduleLifeWeekChart,cubewidth):
+	def __init__(self,birthday,week_start:QDate,colorList,moduleLifeWeekChart,cubewidth):
 		self.cubewidth=cubewidth
 		super().__init__(0,0,self.cubewidth,self.cubewidth)
 		self.moduleLifeWeekChart=moduleLifeWeekChart
@@ -20,9 +20,9 @@ class WeekCube(QGraphicsRectItem):
 	def hoverEnterEvent(self,event):
 		super().hoverEnterEvent(event)
 		
-		tooltip_text=QDate_to_Str(self.week_start,".")+"\n"
+		tooltip_text=self.week_start.toString("yyyy.M.d")+"\n"
 		for event in self.moduleLifeWeekChart.data:
-			if Str_To_QDate(event["begin"]) <= self.week_start <= Str_To_QDate(event["end"]):
+			if QDate.fromString(event["begin"],"yyyyMMdd") <= self.week_start <= QDate.fromString(event["end"],"yyyyMMdd"):
 				tooltip_text+=event["name"]+"\n"
 		tooltip_text=tooltip_text[:-1]
 

@@ -1,5 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+
 block_cipher = None
 
 
@@ -30,5 +31,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False,
-          icon="holoicon.ico",version='version.txt')
+          console=False, icon="holoicon.ico",version='version.txt')

@@ -5,8 +5,6 @@ class SettingPage(Ui_SettingPage,QStackedWidget):
 	def __init__(self,Headquarter):
 		super().__init__(Headquarter)
 		self.setupUi(self)
-		# 继承字体
-		self.setAttribute(Qt.WA_WindowPropagation)
 
 		self.Headquarter=Headquarter
 		self.spinBox_lifespan.setValue(self.Headquarter.lifespan)
@@ -25,7 +23,7 @@ class SettingPage(Ui_SettingPage,QStackedWidget):
 	
 	def setBirthday(self):
 		self.Headquarter.birthday=self.dateEdit_birthday.date()
-		self.Headquarter.UserSetting().setValue("birthday",Fernet_Encrypt(self.Headquarter.password(),QDate_to_Str(self.Headquarter.birthday)))
+		self.Headquarter.UserSetting().setValue("birthday",Fernet_Encrypt(self.Headquarter.password(),self.birthday.toString("yyyyMMdd")))
 		self.Headquarter.LifeWeekChart.updateView()
 	
 	def setCubeWidth(self):

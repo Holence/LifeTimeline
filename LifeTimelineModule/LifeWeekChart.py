@@ -42,7 +42,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 				
 				colorList=[]
 				for event in self.data:
-					if QDate_to_Str(now) >= event["begin"] and QDate_to_Str(now) <= event["end"]:
+					if now.toString("yyyyMMdd") >= event["begin"] and now.toString("yyyyMMdd") <= event["end"]:
 						colorList.append(event["color"])
 				
 				temp=WeekCube(self.Headquarter.birthday,now,colorList,self,self.Headquarter.cubewidth)
@@ -68,7 +68,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		
 		index=0
 		for event in self.data:
-			if Str_To_QDate(event["begin"])<=date<=Str_To_QDate(event["end"]):
+			if QDate.fromString(event["begin"],"yyyyMMdd")<=date<=QDate.fromString(event["end"],"yyyyMMdd"):
 				button=DTWidget.DTCapsuleButton(self,event["name"],event["color"])
 				button.clicked.connect(partial(self.eventEdit,index))
 				self.verticalLayout_EventButtons.addWidget(button)
@@ -81,15 +81,15 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 
 		dlg=EventEditSession(self.Headquarter,"Edit Event",event["color"])
 		dlg.eventedit.lineEdit_name.setText(event["name"])
-		dlg.eventedit.dateEdit_begin.setDate(Str_To_QDate(event["begin"]))
-		dlg.eventedit.dateEdit_end.setDate(Str_To_QDate(event["end"]))
+		dlg.eventedit.dateEdit_begin.setDate(QDate.fromString(event["begin"],"yyyyMMdd"))
+		dlg.eventedit.dateEdit_end.setDate(QDate.fromString(event["end"],"yyyyMMdd"))
 		dlg.eventedit.plainTextEdit.setPlainText(event["description"])
 		# dlg.eventedit.listWidget
 
 		if dlg.exec_():
 			name=dlg.eventedit.lineEdit_name.text()
-			end=QDate_to_Str(dlg.eventedit.dateEdit_end.date())
-			begin=QDate_to_Str(dlg.eventedit.dateEdit_begin.date())
+			end=dlg.eventedit.dateEdit_end.date().toString("yyyyMMdd")
+			begin=dlg.eventedit.dateEdit_begin.date().toString("yyyyMMdd")
 			description=dlg.eventedit.plainTextEdit.toPlainText()
 			color=dlg.eventedit.color
 			# dlg.eventedit.listWidget
@@ -124,8 +124,8 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 
 		if dlg.exec_():
 			name=dlg.eventedit.lineEdit_name.text()
-			end=QDate_to_Str(dlg.eventedit.dateEdit_end.date())
-			begin=QDate_to_Str(dlg.eventedit.dateEdit_begin.date())
+			end=dlg.eventedit.dateEdit_end.date().toString("yyyyMMdd")
+			begin=dlg.eventedit.dateEdit_begin.date().toString("yyyyMMdd")
 			description=dlg.eventedit.plainTextEdit.toPlainText()
 			color=dlg.eventedit.color
 			# dlg.eventedit.listWidget

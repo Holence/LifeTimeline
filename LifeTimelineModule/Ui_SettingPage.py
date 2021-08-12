@@ -12,6 +12,8 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+from DTPySide.DTWidget.DTApplyButton import DTApplyButton
+
 
 class Ui_SettingPage(object):
     def setupUi(self, SettingPage):
@@ -37,12 +39,12 @@ class Ui_SettingPage(object):
 
         self.gridLayout.addWidget(self.dateEdit_birthday, 3, 0, 1, 1)
 
-        self.pushButton_birthday = QPushButton(self.page)
+        self.pushButton_birthday = DTApplyButton(self.page)
         self.pushButton_birthday.setObjectName(u"pushButton_birthday")
 
         self.gridLayout.addWidget(self.pushButton_birthday, 3, 1, 1, 1)
 
-        self.pushButton_lifespan = QPushButton(self.page)
+        self.pushButton_lifespan = DTApplyButton(self.page)
         self.pushButton_lifespan.setObjectName(u"pushButton_lifespan")
 
         self.gridLayout.addWidget(self.pushButton_lifespan, 1, 1, 1, 1)
@@ -79,7 +81,7 @@ class Ui_SettingPage(object):
 
         self.gridLayout.addWidget(self.spinBox_cubewidth, 5, 0, 1, 1)
 
-        self.pushButton_cubewidth = QPushButton(self.page)
+        self.pushButton_cubewidth = DTApplyButton(self.page)
         self.pushButton_cubewidth.setObjectName(u"pushButton_cubewidth")
 
         self.gridLayout.addWidget(self.pushButton_cubewidth, 5, 1, 1, 1)
@@ -93,11 +95,8 @@ class Ui_SettingPage(object):
 
     def retranslateUi(self, SettingPage):
         SettingPage.setWindowTitle(QCoreApplication.translate("SettingPage", u"SettingPage", None))
-        self.pushButton_birthday.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
-        self.pushButton_lifespan.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
         self.label_birthday.setText(QCoreApplication.translate("SettingPage", u"Birthday", None))
         self.label_cubewidth.setText(QCoreApplication.translate("SettingPage", u"Week Cube Width", None))
         self.label_lifesapn.setText(QCoreApplication.translate("SettingPage", u"Lifespan", None))
-        self.pushButton_cubewidth.setText(QCoreApplication.translate("SettingPage", u"Apply", None))
     # retranslateUi
 

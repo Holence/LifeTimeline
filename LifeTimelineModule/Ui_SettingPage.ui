@@ -51,18 +51,10 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QPushButton" name="pushButton_birthday">
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
+     <widget class="DTApplyButton" name="pushButton_birthday"/>
     </item>
     <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_lifespan">
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
+     <widget class="DTApplyButton" name="pushButton_lifespan"/>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_birthday">
@@ -115,15 +107,18 @@
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QPushButton" name="pushButton_cubewidth">
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
+     <widget class="DTApplyButton" name="pushButton_cubewidth"/>
     </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DTApplyButton</class>
+   <extends>QPushButton</extends>
+   <header>DTWidget.DTApplyButton</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
