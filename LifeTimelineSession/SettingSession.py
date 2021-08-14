@@ -8,5 +8,5 @@ class SettingSession(DTSession.DTSettingSession):
 
 		self.SettingPages=SettingPage(Headquarter)
 
-		MenuButton1=DTWidget.DTSettingButton(QIcon(":/icon/white/white_menu.svg"))
+		MenuButton1=DTWidget.DTSettingButton(IconFromCurrentTheme("menu.svg"))
 		self.addButtonAndPage(MenuButton1,self.SettingPages.page)

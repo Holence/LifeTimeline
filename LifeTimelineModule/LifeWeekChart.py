@@ -23,6 +23,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		
 		# self.graphicsView.horizontalScrollBar().setPageStep(1)
 		# self.graphicsView.horizontalScrollBar().setSingleStep(1)
+		self.actionAdd_Event.setIcon(IconFromCurrentTheme("plus.svg"))
 		
 		self.updateView()
 

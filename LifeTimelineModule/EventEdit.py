@@ -15,6 +15,7 @@ class EventEdit(Ui_EventEdit,QWidget):
 		self.pushButton_color.clicked.connect(self.setColor)
 
 		self.pushButton_delete.clicked.connect(self.deleteEvent)
+		self.pushButton_delete.setIcon(IconFromCurrentTheme("trash-2.svg"))
 	
 	def setColor(self):
 		color = QColorDialog.getColor(self.color,self)

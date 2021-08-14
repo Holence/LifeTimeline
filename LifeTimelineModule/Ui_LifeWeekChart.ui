@@ -102,10 +102,6 @@
    </item>
   </layout>
   <action name="actionAdd_Event">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icon/white/white_plus.svg</normaloff>:/icon/white/white_plus.svg</iconset>
-   </property>
    <property name="text">
     <string>Add Event</string>
    </property>

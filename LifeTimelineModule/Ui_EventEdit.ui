@@ -185,10 +185,6 @@ QPushButton:pressed {
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset resource="../../Program/Python/Lib/site-packages/DTPySide/DT.qrc">
-             <normaloff>:/icon/white/white_trash-2.svg</normaloff>:/icon/white/white_trash-2.svg</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>24</width>

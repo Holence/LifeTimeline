@@ -126,9 +126,6 @@ class Ui_EventEdit(object):
 "	border-style: solid;\n"
 "	border-radius: 4px;\n"
 "}")
-        icon = QIcon()
-        icon.addFile(u":/icon/white/white_trash-2.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_delete.setIcon(icon)
         self.pushButton_delete.setIconSize(QSize(24, 24))
 
         self.verticalLayout_3.addWidget(self.pushButton_delete)
