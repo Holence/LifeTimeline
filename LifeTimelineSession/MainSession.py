@@ -27,14 +27,16 @@ class MainSession(DTSession.DTMainSession):
 	def loadData(self):
 		super().loadData()
 
-		if os.path.exists("./LifeTimelime.dlcw"):
-			self.data=Fernet_Decrypt_Load(self.password(),"./LifeTimelime.dlcw")
+		data_dir=os.path.join(self.app.DataDir(),"LifeTimelime.dlcw")
+		print(data_dir)
+		if os.path.exists(data_dir):
+			self.data=Fernet_Decrypt_Load(self.password(), data_dir)
 			if self.data==False:
-				DTFrame.DTMessageBox(self,"Error","Data Error!")
+				DTFrame.DTMessageBox(self,"Error", "Data Error!")
 				self.app.quit()
 		else:
 			self.data=[]
-			Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
+			Fernet_Encrypt_Save(self.password(), self.data, data_dir)
 
 		try:
 			self.lifespan=int(Fernet_Decrypt(self.password(),self.UserSetting().value("lifespan")))
@@ -59,8 +61,8 @@ class MainSession(DTSession.DTMainSession):
 
 	def saveData(self):
 		super().saveData()
-
-		Fernet_Encrypt_Save(self.password(),self.data,"./LifeTimelime.dlcw")
+		
+		Fernet_Encrypt_Save(self.password(),self.data,os.path.join(self.app.DataDir(),"LifeTimelime.dlcw"))
 	
 	def saveAllEncryptData(self):
 		super().saveAllEncryptData()

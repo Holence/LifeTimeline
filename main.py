@@ -8,6 +8,7 @@ app.setWindowIcon(DTIcon.HoloIcon2())
 app.setAuthor("Holence")
 app.setApplicationVersion("0.0.0.0")
 app.setLoginEnable(True)
+app.setDataList(["LifeTimelime.dlcw"])
 
 session=MainSession(app)
 app.setMainSession(session)
