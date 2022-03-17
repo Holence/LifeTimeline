@@ -1,1 +1,1 @@
-DTPySide==0.0.7
+DTPySide>=0.1.0a2
