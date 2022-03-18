@@ -87,6 +87,9 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		dlg.eventedit.plainTextEdit.setPlainText(event["description"])
 		# dlg.eventedit.listWidget
 
+		dlg.adjustSize()
+		MoveToCenterOfScreen(dlg)
+
 		if dlg.exec_():
 			name=dlg.eventedit.lineEdit_name.text()
 			end=dlg.eventedit.dateEdit_end.date().toString("yyyyMMdd")
@@ -122,6 +125,9 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		dlg=EventEditSession(self.Headquarter,"Add New Event")
 		
 		dlg.eventedit.pushButton_delete.hide()
+
+		dlg.adjustSize()
+		MoveToCenterOfScreen(dlg)
 
 		if dlg.exec_():
 			name=dlg.eventedit.lineEdit_name.text()
