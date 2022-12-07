@@ -18,15 +18,15 @@ class SettingPage(Ui_SettingPage,QStackedWidget):
 
 	def setLifespan(self):
 		self.Headquarter.lifespan=self.spinBox_lifespan.value()
-		self.Headquarter.UserSetting().setValue("lifespan",Fernet_Encrypt(self.Headquarter.password(),self.Headquarter.lifespan))
+		self.Headquarter.UserSetting().setValue("lifespan",Symmetric_Encrypt(self.Headquarter.password(),self.Headquarter.lifespan))
 		self.Headquarter.LifeWeekChart.updateView()
 	
 	def setBirthday(self):
 		self.Headquarter.birthday=self.dateEdit_birthday.date()
-		self.Headquarter.UserSetting().setValue("birthday",Fernet_Encrypt(self.Headquarter.password(),self.birthday.toString("yyyyMMdd")))
+		self.Headquarter.UserSetting().setValue("birthday",Symmetric_Encrypt(self.Headquarter.password(),self.birthday.toString("yyyyMMdd")))
 		self.Headquarter.LifeWeekChart.updateView()
 	
 	def setCubeWidth(self):
 		self.Headquarter.cubewidth=self.spinBox_cubewidth.value()
-		self.Headquarter.UserSetting().setValue("cubewidth",Fernet_Encrypt(self.Headquarter.password(),self.Headquarter.cubewidth))
+		self.Headquarter.UserSetting().setValue("cubewidth",Symmetric_Encrypt(self.Headquarter.password(),self.Headquarter.cubewidth))
 		self.Headquarter.LifeWeekChart.updateView()
