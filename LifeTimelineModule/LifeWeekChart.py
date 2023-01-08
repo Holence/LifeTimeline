@@ -1,11 +1,9 @@
 from DTPySide import *
 
-from LifeTimelineWidget.WeekCube import WeekCube
-from LifeTimelineSession.EventEditSession import EventEditSession
-
+from LifeTimelineSession.MainSession import MainSession
 from LifeTimelineModule.Ui_LifeWeekChart import Ui_LifeWeekChart
 class LifeWeekChart(Ui_LifeWeekChart,QWidget):
-	def __init__(self,Headquarter):
+	def __init__(self, Headquarter: MainSession):
 		super().__init__(Headquarter)
 		self.setupUi(self)
 		self.Headquarter=Headquarter
@@ -35,6 +33,8 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 		self.Headquarter.addSeparatorToMainMenu()
 
 	def updateView(self):
+		from LifeTimelineWidget.WeekCube import WeekCube
+
 		self.scene.clear()
 
 		now=self.Headquarter.birthday
@@ -79,7 +79,8 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 	def eventEdit(self,index):
 		
 		event=self.data[index]
-
+		
+		from LifeTimelineSession.EventEditSession import EventEditSession
 		dlg=EventEditSession(self.Headquarter,"Edit Event",event["color"])
 		dlg.eventedit.lineEdit_name.setText(event["name"])
 		dlg.eventedit.dateEdit_begin.setDate(QDate.fromString(event["begin"],"yyyyMMdd"))
@@ -122,6 +123,7 @@ class LifeWeekChart(Ui_LifeWeekChart,QWidget):
 					self.updateView()
 
 	def eventAdd(self):
+		from LifeTimelineSession.EventEditSession import EventEditSession
 		dlg=EventEditSession(self.Headquarter,"Add New Event")
 		
 		dlg.eventedit.pushButton_delete.hide()

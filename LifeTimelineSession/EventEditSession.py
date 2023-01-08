@@ -1,11 +1,12 @@
 from DTPySide import *
 
-from LifeTimelineModule.EventEdit import EventEdit
 
+from LifeTimelineSession.MainSession import MainSession
 class EventEditSession(DTFrame.DTDialog):
-	def __init__(self,Headquarter,title,color="#E6E6E6"):
-		super().__init__(Headquarter,title)
-		
+	def __init__(self, Headquarter: MainSession, title, color="#E6E6E6"):
+		super().__init__(Headquarter, title)
+
+		from LifeTimelineModule.EventEdit import EventEdit		
 		self.eventedit=EventEdit(self,Headquarter.birthday,color)
 		self.centralWidget.addWidget(self.eventedit)
 		self.adjustSize()

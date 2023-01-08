@@ -1,8 +1,9 @@
 from DTPySide import *
 
+from LifeTimelineSession.MainSession import MainSession
 from LifeTimelineModule.Ui_SettingPage import Ui_SettingPage
 class SettingPage(Ui_SettingPage,QStackedWidget):
-	def __init__(self,Headquarter):
+	def __init__(self, Headquarter: MainSession):
 		super().__init__(Headquarter)
 		self.setupUi(self)
 
@@ -18,15 +19,15 @@ class SettingPage(Ui_SettingPage,QStackedWidget):
 
 	def setLifespan(self):
 		self.Headquarter.lifespan=self.spinBox_lifespan.value()
-		self.Headquarter.UserSetting().setValue("lifespan",Symmetric_Encrypt(self.Headquarter.password(),self.Headquarter.lifespan))
+		self.Headquarter.UserSetting().setValue("lifespan",Symmetric_Encrypt(self.Headquarter.password(), self.Headquarter.lifespan, iteration=self.Headquarter.iteration()))
 		self.Headquarter.LifeWeekChart.updateView()
 	
 	def setBirthday(self):
 		self.Headquarter.birthday=self.dateEdit_birthday.date()
-		self.Headquarter.UserSetting().setValue("birthday",Symmetric_Encrypt(self.Headquarter.password(),self.birthday.toString("yyyyMMdd")))
+		self.Headquarter.UserSetting().setValue("birthday",Symmetric_Encrypt(self.Headquarter.password(), self.birthday.toString("yyyyMMdd"), iteration=self.Headquarter.iteration()))
 		self.Headquarter.LifeWeekChart.updateView()
 	
 	def setCubeWidth(self):
 		self.Headquarter.cubewidth=self.spinBox_cubewidth.value()
-		self.Headquarter.UserSetting().setValue("cubewidth",Symmetric_Encrypt(self.Headquarter.password(),self.Headquarter.cubewidth))
+		self.Headquarter.UserSetting().setValue("cubewidth",Symmetric_Encrypt(self.Headquarter.password(), self.Headquarter.cubewidth, iteration=self.Headquarter.iteration()))
 		self.Headquarter.LifeWeekChart.updateView()

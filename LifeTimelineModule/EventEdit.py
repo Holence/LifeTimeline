@@ -1,8 +1,9 @@
 from DTPySide import *
 
+from LifeTimelineSession.EventEditSession import EventEditSession
 from LifeTimelineModule.Ui_EventEdit import Ui_EventEdit
-class EventEdit(Ui_EventEdit,QWidget):
-	def __init__(self,EventEditSession,birthday,color):
+class EventEdit(Ui_EventEdit, QWidget):
+	def __init__(self, EventEditSession: EventEditSession, birthday, color):
 		super().__init__(EventEditSession)
 		self.setupUi(self)
 		

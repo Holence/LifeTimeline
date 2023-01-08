@@ -2,9 +2,9 @@ from DTPySide import *
 
 class WeekCube(QGraphicsRectItem):
 	
-	def __init__(self,birthday,week_start:QDate,colorList,moduleLifeWeekChart,cubewidth):
+	def __init__(self, birthday, week_start:QDate, colorList, moduleLifeWeekChart, cubewidth):
 		self.cubewidth=cubewidth
-		super().__init__(0,0,self.cubewidth,self.cubewidth)
+		super().__init__(0, 0, self.cubewidth, self.cubewidth)
 		self.moduleLifeWeekChart=moduleLifeWeekChart
 		self.week_start=week_start
 
@@ -17,7 +17,7 @@ class WeekCube(QGraphicsRectItem):
 		self.setBrush(self.color)
 		self.setAcceptHoverEvents(True)
 	
-	def hoverEnterEvent(self,event):
+	def hoverEnterEvent(self, event):
 		super().hoverEnterEvent(event)
 		
 		tooltip_text=self.week_start.toString("yyyy.M.d")+"\n"
@@ -61,12 +61,12 @@ class WeekCube(QGraphicsRectItem):
 		
 		self.tooltip.show()
 	
-	def hoverLeaveEvent(self,event):
+	def hoverLeaveEvent(self, event):
 		super().hoverLeaveEvent(event)
 
 		self.tooltip.deleteLater()
 	
-	def mousePressEvent(self,event):
+	def mousePressEvent(self, event):
 		super().mousePressEvent(event)
 		# QGraphicsRectItem并不是QWidget，不能设定signal和connect
 		# 这里就直接用parent指针调用函数了
